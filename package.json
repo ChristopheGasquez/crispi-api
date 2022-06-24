@@ -1,0 +1,30 @@
+{
+  "name": "crispi-api",
+  "version": "1.0.0",
+  "description": "Rest API for Crispi environment. ",
+  "main": "app.js",
+  "scripts": {
+    "serve:dev": "node app.js",
+    "watch:dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristopheGasquez/crispi-api.git"
+  },
+  "keywords": [
+    "Crispi",
+    "Rest",
+    "API"
+  ],
+  "author": "Christophe Gasquez <c.gasquez.dl@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChristopheGasquez/crispi-api/issues"
+  },
+  "homepage": "https://github.com/ChristopheGasquez/crispi-api#readme",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.18"
+  }
+}
