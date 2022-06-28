@@ -3,5 +3,5 @@ import authentication from './authentication.route.js';
 
 export default {
   home,
-  authentication
+  authentication,
 };

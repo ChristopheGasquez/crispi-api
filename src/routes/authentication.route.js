@@ -15,12 +15,13 @@ export default express
   // Home PUT => Refresh.
   .put(
     '/',
-    middleware.ensureHeaderProperty('accessToken'),
+    middleware.ensureAuthorization,
+    middleware.ensureBodyProperty('refreshToken'),
     actions.authentication.refresh
   )
   // Home DELETE => Logout.
   .delete(
     '/',
-    middleware.ensureHeaderProperty('accessToken'),
+    middleware.ensureAuthorization,
     actions.authentication.logout
   );

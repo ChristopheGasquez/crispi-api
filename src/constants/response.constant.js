@@ -1,5 +1,17 @@
 export default {
   error: {
+    authentication: {
+      invalidToken: {
+        status: 401,
+        code: 'error.authentication.invalidToken',
+        message: 'Error: Authorization on header request is invalid.'
+      },
+      expiredToken: {
+        status: 401,
+        code: 'error.authentication.expiredToken',
+        message: 'Error: Authorization on header request is expired.'
+      }
+    },
     server: {
       unknown: {
         status: 500,
@@ -16,6 +28,11 @@ export default {
         }
       },
       header: {
+        authorization: {
+          status: 401,
+          code: 'error.header.authorization',
+          message: 'Error: \'Authorization\' field is missing on header request.'
+        },
         property: {
           status: 400,
           code: 'error.header.property',

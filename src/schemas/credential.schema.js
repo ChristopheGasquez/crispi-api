@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { schemaOptions } from '../utils/schema.config.js';
+import { Right } from './right.schema.js';
 
 const schema = new mongoose.Schema({
     email: {
@@ -18,7 +19,7 @@ const schema = new mongoose.Schema({
     },
     right: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Right',
+      ref: Right.modelName,
       required: true
     }
   },

@@ -5,5 +5,5 @@ import refresh from './refresh.action.js';
 export default {
   login,
   logout,
-  refresh
+  refresh,
 };
