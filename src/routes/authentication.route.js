@@ -10,17 +10,17 @@ export default express
     '/',
     middleware.ensureBodyProperty('email'),
     middleware.ensureBodyProperty('password'),
-    actions.login
+    actions.authentication.login
   )
   // Home PUT => Refresh.
   .put(
     '/',
     middleware.ensureHeaderProperty('accessToken'),
-    actions.refresh
+    actions.authentication.refresh
   )
   // Home DELETE => Logout.
   .delete(
     '/',
     middleware.ensureHeaderProperty('accessToken'),
-    actions.logout
+    actions.authentication.logout
   );

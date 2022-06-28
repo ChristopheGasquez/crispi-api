@@ -13,7 +13,7 @@ export default (propertyName) => {
       const response = new Response(CONST.response.error.ensure.header.property);
       response.meta = {
         field: `Missing '${ propertyName }' on header request.`
-      }
+      };
       // Send response.
       response.send(res);
     }

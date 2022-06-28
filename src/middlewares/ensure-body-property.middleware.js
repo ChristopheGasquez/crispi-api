@@ -5,7 +5,7 @@ export default (propertyName) => {
   // Return middleware.
   return (req, res, next) => {
     // If header property exist.
-    if (req.body && req.body[propertyName]) {
+    if (req.body && req.body[ propertyName ]) {
       next();
     }
     else {
@@ -13,7 +13,7 @@ export default (propertyName) => {
       const response = new Response(CONST.response.error.ensure.body.property);
       response.meta = {
         field: `Missing '${ propertyName }' on body request.`
-      }
+      };
       // Send response.
       response.send(res);
     }

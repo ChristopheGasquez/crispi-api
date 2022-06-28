@@ -1,5 +1,9 @@
 import express from 'express';
 import routes from './src/routes/index.js';
+import database from './src/utils/database.js';
+
+// Connect Database
+database.connectDB();
 
 // Define port.
 const PORT = process.env.PORT || 3001;
