@@ -6,5 +6,10 @@ export const schemaOptions = {
       delete ret._id;
       delete ret.__v;
     }
-  }
+  },
+  transform: true
+};
+
+export default {
+  schemaOptions
 };

@@ -6,17 +6,16 @@ export function createToken(data, expiresIn = '1d') {
   return jsonwebtoken.sign(data, jwtSecretKey, { expiresIn });
 }
 
-export function decodeToken(token) {
-  return jsonwebtoken.verify(token, jwtSecretKey, function (error, decode) {
+export function verifyToken(token) {
+  return jsonwebtoken.verify(token, jwtSecretKey, function (error, issuer) {
     if (error) {
-      return null;
+      return { error: { ...error } };
     }
-    return decode;
+    return { issuer };
   });
 }
 
-
 export default {
   createToken,
-  decodeToken
+  verifyToken
 };

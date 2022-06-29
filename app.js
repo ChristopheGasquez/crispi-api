@@ -17,6 +17,7 @@ app.use(express.json());
 // Use routes middleware
 app.use('/', routes.home);
 app.use('/authentication', routes.authentication);
+app.use('/rights', routes.rights);
 
 // Start server on specified port.
 app.listen(PORT, () => {

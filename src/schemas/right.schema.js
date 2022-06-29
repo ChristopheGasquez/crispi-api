@@ -1,5 +1,5 @@
-import { schemaOptions } from '../utils/schema.config.js';
 import mongoose from 'mongoose';
+import { schemaOptions } from '../constants/schema.constant.js';
 
 const schema = new mongoose.Schema({
     level: {
@@ -8,10 +8,18 @@ const schema = new mongoose.Schema({
     },
     name: {
       type: 'string',
-      required: true
+      required: true,
+      unique: true
+    },
+    isDefault: {
+      type: 'boolean',
+      required: true,
+      default: false,
+      select: false
     }
   },
   schemaOptions
 );
 
 export const Right = mongoose.model('Right', schema);
+

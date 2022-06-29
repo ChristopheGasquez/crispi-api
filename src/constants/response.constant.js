@@ -6,11 +6,21 @@ export default {
         code: 'error.authentication.invalidToken',
         message: 'Error: Authorization on header request is invalid.'
       },
-      expiredToken: {
+      TokenExpiredError: {
         status: 401,
-        code: 'error.authentication.expiredToken',
+        code: 'error.authentication.tokenExpiredError',
         message: 'Error: Authorization on header request is expired.'
-      }
+      },
+      JsonWebTokenError: {
+        status: 401,
+        code: 'error.authentication.jsonWebTokenError',
+        message: 'Error: Authorization on header request error.'
+      },
+      NotBeforeError: {
+        status: 401,
+        code: 'error.authentication.NotBeforeError',
+        message: 'Error: Authorization on header request is not active yet.'
+      },
     },
     server: {
       unknown: {
@@ -38,6 +48,20 @@ export default {
           code: 'error.header.property',
           message: 'Error: A property is missing on header request.'
         }
+      },
+      param: {
+        objectId: {
+          status: 400,
+          code: 'error.param.ObjectID',
+          message: 'Error: Id send on url param is not valid.'
+        }
+      },
+      right: {
+        level: {
+          status: 401,
+          code: 'error.ensure.right',
+          message: 'Error: You do not have access to this resource.'
+        }
       }
     },
     notFound: {
@@ -62,6 +86,23 @@ export default {
         status: 200,
         code: 'success.authentication.refresh',
         message: 'Success: Refresh.'
+      }
+    },
+    rights: {
+      create: {
+        status: 201,
+        code: 'success.rights.create',
+        message: 'Success: Right created.'
+      },
+      list: {
+        status: 200,
+        code: 'success.rights.list',
+        message: 'Success: Rights list.'
+      },
+      show: {
+        status: 200,
+        code: 'success.rights.show',
+        message: 'Success: Rights show.'
       }
     },
     server: {

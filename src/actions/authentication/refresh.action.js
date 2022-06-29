@@ -2,17 +2,23 @@ import { Response } from '../../models/response.model.js';
 import CONST from '../../constants/index.js';
 import { Credential } from '../../schemas/credential.schema.js';
 import jsonWebToken from '../../utils/json-web-token.js';
+import utils from '../../utils/index.js';
 
 export default (req, res) => {
   // Get credential by id.
   Credential
     .findById(req.issuer.id)
-    .populate('right')
+    .populate('right', '-createdAt -updatedAt')
     .then(credential => {
       // If not found.
       if (!credential) {
         // Create response.
         const response = new Response(CONST.response.error.authentication.invalidToken);
+        // Set meta.
+        response.meta = {
+          field: 'Authorization',
+          reason: 'Error: Invalid refresh token, Can\'t find credential.'
+        }
         // Send response.
         response.send(res);
       }
@@ -34,13 +40,5 @@ export default (req, res) => {
         response.send(res);
       }
     })
-    .catch((err) => {
-      // Create response.
-      const response = new Response(CONST.response.error.server.unknown);
-      response.meta = {
-        detail: err?.message || 'Unknown'
-      };
-      // Send response.
-      response.send(res);
-    });
+    .catch(utils.handlerError(res));
 }

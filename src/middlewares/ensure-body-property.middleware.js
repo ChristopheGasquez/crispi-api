@@ -12,7 +12,8 @@ export default (propertyName) => {
       // Create response with appropriated error.
       const response = new Response(CONST.response.error.ensure.body.property);
       response.meta = {
-        field: `Missing '${ propertyName }' on body request.`
+        field: propertyName,
+        reason: `Missing '${ propertyName }' on body request.`,
       };
       // Send response.
       response.send(res);

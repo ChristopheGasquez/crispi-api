@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { schemaOptions } from '../utils/schema.config.js';
+import { schemaOptions } from '../constants/schema.constant.js';
 import { Right } from './right.schema.js';
 
 const schema = new mongoose.Schema({
