@@ -68,6 +68,18 @@ export default {
       status: 404,
       code: 'error.notFound',
       message: 'Error: Resource not found.'
+    },
+    rights: {
+      alreadyExists: {
+        status: 409,
+        code: 'error.rights.alreadyExists',
+        message: 'Error: This right already exists.'
+      },
+      insufficientIssuerLevel: {
+        status: 401,
+        code: 'error.rights.insufficientIssuerLevel',
+        message: 'Error: Your level access is insufficient.'
+      }
     }
   },
   success: {
