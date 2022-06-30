@@ -26,4 +26,9 @@ export default express
     middleware.ensureBodyProperty('name'),
     middleware.ensureBodyProperty('level'),
     actions.rights.create
+  )
+  // Rights DELETE/:id => Remove.
+  .delete('/:id',
+    middleware.ensureParamObjectId(),
+    actions.rights.remove
   );

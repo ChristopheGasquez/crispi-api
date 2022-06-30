@@ -73,7 +73,12 @@ export default {
       alreadyExists: {
         status: 409,
         code: 'error.rights.alreadyExists',
-        message: 'Error: This right already exists.'
+        message: 'Error: This right is already exists.'
+      },
+      alreadyUsed: {
+        status: 409,
+        code: 'error.rights.alreadyUsed',
+        message: 'Error: This right is already used.'
       },
       insufficientIssuerLevel: {
         status: 401,
@@ -110,6 +115,11 @@ export default {
         status: 200,
         code: 'success.rights.list',
         message: 'Success: Rights list.'
+      },
+      remove: {
+        status: 200,
+        code: 'success.rights.remove',
+        message: 'Success: Rights removed.'
       },
       show: {
         status: 200,
