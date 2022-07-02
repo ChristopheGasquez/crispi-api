@@ -10,5 +10,5 @@ export default (req, res) => {
     credential: {}
   };
   // Send response.
-  response.send(res);
+  return response.send(res);
 }

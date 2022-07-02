@@ -14,7 +14,7 @@
 `// Todo: Complete this section`
 ### Defined Environment variables
 
-You have to defined your envirnment variable before start server:
+You have to defined your environment variables before start the server:
 - **DB_USER**=*ChristopheGasquez*
 - **DB_PASSWORD**=*yourDatabasePassword@42*
 - **DB_PROTOCOL**=*mongodb+srv*

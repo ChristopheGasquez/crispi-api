@@ -125,6 +125,11 @@ export default {
         status: 200,
         code: 'success.rights.show',
         message: 'Success: Rights show.'
+      },
+      update: {
+        status: 200,
+        code: 'success.rights.update',
+        message: 'Success: Rights updated.'
       }
     },
     server: {

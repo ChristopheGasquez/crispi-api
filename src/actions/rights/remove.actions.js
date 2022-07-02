@@ -64,19 +64,20 @@ export default async (req, res) => {
   }
   // If no error, create right.
   else {
-    Right.findByIdAndDelete(req.params.id)
-      .then(() => {
-        // Create response.
-        const response = new Response(CONST.response.success.rights.remove);
-        // Set meta.
-        response.meta = {
-          query: {
-            id: req.params.id
-          }
-        };
-        // Send response.
-        response.send(res);
-      })
-      .catch(utils.handlerError(res));
+    try {
+      await Right.findByIdAndDelete(req.params.id);
+      // Create response.
+      const response = new Response(CONST.response.success.rights.remove);
+      // Set meta.
+      response.meta = {
+        query: {
+          id: req.params.id
+        }
+      };
+      // Send response.
+      return response.send(res);
+    } catch {
+      return utils.handlerError(res);
+    }
   }
 };

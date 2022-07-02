@@ -27,6 +27,13 @@ export default express
     middleware.ensureBodyProperty('level'),
     actions.rights.create
   )
+  // Rights PUT => Update.
+  .put('/:id',
+    middleware.ensureParamObjectId(),
+    middleware.ensureBodyProperty('name'),
+    middleware.ensureBodyProperty('level'),
+    actions.rights.update
+  )
   // Rights DELETE/:id => Remove.
   .delete('/:id',
     middleware.ensureParamObjectId(),
