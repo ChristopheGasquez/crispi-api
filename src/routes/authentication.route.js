@@ -8,15 +8,20 @@ export default express
   // Home POST => Login.
   .post(
     '/',
-    middleware.ensureBodyProperty('email'),
-    middleware.ensureBodyProperty('password'),
+    middleware.ensureProperties([
+      { from: 'body', key: 'email', required: true, format: 'email' },
+      { from: 'body', key: 'password', required: true, format: 'password' },
+    ]),
+    middleware.encryptProperty('password'),
     actions.authentication.login
   )
   // Home PUT => Refresh.
   .put(
     '/',
     middleware.ensureAuthorization(),
-    middleware.ensureBodyProperty('refreshToken'),
+    middleware.ensureProperties([
+      { from: 'body', key: 'refreshToken', required: true, format: 'token' },
+    ]),
     actions.authentication.refresh
   )
   // Home DELETE => Logout.

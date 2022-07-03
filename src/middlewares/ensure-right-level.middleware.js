@@ -26,8 +26,7 @@ export default (level) => {
           // Send response.
           return response.send(res);
         }
-      }
-      catch {
+      } catch {
         // Create response.
         const response = new Response(CONST.response.error.notFound);
         // Set meta.

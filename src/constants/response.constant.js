@@ -105,6 +105,23 @@ export default {
         message: 'Success: Refresh.'
       }
     },
+    credentials: {
+      list: {
+        status: 200,
+        code: 'success.credentials.list',
+        message: 'Success: Credentials list.'
+      },
+      remove: {
+        status: 200,
+        code: 'success.credentials.remove',
+        message: 'Success: Credentials removed.'
+      },
+      show: {
+        status: 200,
+        code: 'success.credentials.show',
+        message: 'Success: Credentials show.'
+      },
+    },
     rights: {
       create: {
         status: 201,

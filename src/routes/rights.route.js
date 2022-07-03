@@ -18,24 +18,32 @@ export default express
   // Rights GET/:id => Show.
   .get(
     '/:id',
-    middleware.ensureParamObjectId(),
+    middleware.ensureProperties([
+      { from: 'params', key: 'id', required: true, format: 'id' }
+    ]),
     actions.rights.show
   )
   // Rights POST => Create.
   .post('/',
-    middleware.ensureBodyProperty('name'),
-    middleware.ensureBodyProperty('level'),
+    middleware.ensureProperties([
+      { from: 'body', key: 'name', required: true, format: 'string' },
+      { from: 'body', key: 'level', required: true, format: 'number' }
+    ]),
     actions.rights.create
   )
   // Rights PUT => Update.
   .put('/:id',
-    middleware.ensureParamObjectId(),
-    middleware.ensureBodyProperty('name'),
-    middleware.ensureBodyProperty('level'),
+    middleware.ensureProperties([
+      { from: 'params', key: 'id', required: true, format: 'id' },
+      { from: 'body', key: 'name', required: true, format: 'string' },
+      { from: 'body', key: 'level', required: true, format: 'number' }
+    ]),
     actions.rights.update
   )
   // Rights DELETE/:id => Remove.
   .delete('/:id',
-    middleware.ensureParamObjectId(),
+    middleware.ensureProperties([
+      { from: 'params', key: 'id', required: true, format: 'id' }
+    ]),
     actions.rights.remove
   );

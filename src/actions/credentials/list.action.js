@@ -1,15 +1,15 @@
-import { Right } from '../../schemas/right.schema.js';
+import utils from '../../utils/index.js';
 import { Response } from '../../models/response.model.js';
 import CONST from '../../constants/index.js';
-import utils from '../../utils/index.js';
+import { Credential } from '../../schemas/credential.schema.js';
 
 export default async (req, res) => {
   // Get query params.
   const skip = req.query?.skip && parseInt(req.query.skip, 10) || 0;
   const limit = req.query?.limit && parseInt(req.query.limit, 10) || 100;
-  // Get Rights list and count.
+  // Get Credentials list and count.
   try {
-    const [ { data, meta } ] = await Right.aggregate([
+    const [ { data, meta } ] = await Credential.aggregate([
       { $match: {} },
       { $sort: { level: 1 } },
       { $addFields: { id: '$_id' } },
@@ -27,7 +27,7 @@ export default async (req, res) => {
       }
     ]);
     // Create response.
-    const response = new Response(CONST.response.success.rights.list);
+    const response = new Response(CONST.response.success.credentials.list);
     // Set data.
     response.data = data;
     // Set meta.
@@ -38,4 +38,4 @@ export default async (req, res) => {
   } catch {
     return utils.handlerError(res);
   }
-};
+}

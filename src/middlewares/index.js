@@ -1,13 +1,11 @@
+import encryptProperty from './encrypt-property.middleware.js';
 import ensureAuthorization from './ensure-authorization.middleware.js';
-import ensureBodyProperty from './ensure-body-property.middleware.js';
-import ensureHeaderProperty from './ensure-header-property.middleware.js';
-import ensureParamObjectId from './ensure-param-object-id.middleware.js';
+import ensureProperties from './ensure-properties.middleware.js';
 import ensureRightLevel from './ensure-right-level.middleware.js';
 
 export default {
+  encryptProperty,
   ensureAuthorization,
-  ensureBodyProperty,
-  ensureHeaderProperty,
-  ensureParamObjectId,
+  ensureProperties,
   ensureRightLevel,
 };

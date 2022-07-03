@@ -38,7 +38,7 @@ export default async (req, res) => {
       field: 'id'
     };
     // Send response.
-    response.send(res);
+    return response.send(res);
   }
   // If insufficient issuer level.
   else if (isInsufficientIssuerLevel) {
@@ -60,9 +60,9 @@ export default async (req, res) => {
       field: 'id'
     };
     // Send response.
-    response.send(res);
+    return response.send(res);
   }
-  // If no error, create right.
+  // If no error, remove right.
   else {
     try {
       await Right.findByIdAndDelete(req.params.id);
