@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import CONST from '../constants/index.js';
 
 export default (rules = []) => {
   // rules: { from: 'body', key: 'password', format: 'string', required: true }[]
@@ -37,21 +38,14 @@ export default (rules = []) => {
           break;
         }
         case 'password': {
-          ensureFormatPrimitive('string', errors, key, value, from);
-          ensureFormatMinLength(6, errors, key, value, from);
-          ensureFormatMaxLength(32, errors, key, value, from);
-          // Todo: Password regex.
+          ensureFormatPassword(errors, key, value, from)
           break;
         }
         case 'email': {
           ensureFormatPrimitive('string', errors, key, value, from);
           ensureFormatMinLength(6, errors, key, value, from);
           ensureFormatMaxLength(256, errors, key, value, from);
-          // TODO: Email regex.
-          break;
-        }
-        case 'token': {
-          // TODO: Token.
+          ensureFormatEmail(errors, key, value, from);
           break;
         }
         default: {
@@ -91,7 +85,6 @@ export default (rules = []) => {
 
     // Ensure format objectID.
     function ensureFormatObjectID(errors, key, value, from) {
-      //     if (req.params[ paramName ] && mongoose.isValidObjectId(req.params[ paramName ])) {
       if (value !== undefined && !mongoose.isValidObjectId(`${ value }`)) {
         errors.push({
           field: key,
@@ -99,7 +92,31 @@ export default (rules = []) => {
           reason: `Property '${ key } from '${ from }' request have not the good format. Expected format: 'ID'.`
         });
       }
-    }    // Expected min length.
+    }
+
+    // Ensure format email.
+    function ensureFormatEmail(errors, key, value, from) {
+      if (value !== undefined && !value.toLowerCase().match(CONST.regex.emailRegex)) {
+        errors.push({
+          field: key,
+          error: 'format',
+          reason: `Property '${ key } from '${ from }' request have not the good format. Expected format: 'email'.`
+        });
+      }
+    }
+
+    // Ensure format password.
+    function ensureFormatPassword(errors, key, value, from) {
+      if (value !== undefined && !value.match(CONST.regex.passwordRegex)) {
+        errors.push({
+          field: key,
+          error: 'format',
+          reason: `Property '${ key } from '${ from }' request have not the good format. Expected format: 'password' (between 8 to 32 characters which contain at least one numeric digit, one uppercase and one lowercase letter).`
+        });
+      }
+    }
+
+    // Expected min length.
     function ensureFormatMinLength(length, errors, key, value, from) {
       if (value !== undefined && value?.length < length) {
         errors.push({

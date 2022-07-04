@@ -20,7 +20,7 @@ export default express
     '/',
     middleware.ensureAuthorization(),
     middleware.ensureProperties([
-      { from: 'body', key: 'refreshToken', required: true, format: 'token' },
+      { from: 'body', key: 'refreshToken', required: true, format: 'string' },
     ]),
     actions.authentication.refresh
   )
