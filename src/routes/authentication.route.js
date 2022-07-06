@@ -19,9 +19,6 @@ export default express
   .put(
     '/',
     middleware.ensureAuthorization(),
-    middleware.ensureProperties([
-      { from: 'body', key: 'refreshToken', required: true, format: 'string' },
-    ]),
     actions.authentication.refresh
   )
   // Home DELETE => Logout.
