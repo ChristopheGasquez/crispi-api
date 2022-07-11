@@ -30,8 +30,8 @@ export default express
       { from: 'body', key: 'email', required: true, format: 'email' },
       { from: 'body', key: 'password', required: true, format: 'password' },
       { from: 'body', key: 'right', required: true, format: 'id' },
-      { from: 'body', key: 'isEmailConfirmed', required: false, format: 'boolean' },
     ]),
+    middleware.encryptProperty('password'),
     actions.credentials.update
   )
   // Credentials DELETE/:id => Remove.

@@ -24,7 +24,7 @@ export default async (req, res) => {
     // Create response.
     const response = new Response(CONST.response.error.rights.insufficientIssuerLevel);
     // Set data.
-    response.mata = {
+    response.meta = {
       field: 'level'
     };
     // Send response.
@@ -35,7 +35,7 @@ export default async (req, res) => {
     // Create response.
     const response = new Response(CONST.response.error.rights.alreadyExists);
     // Set data.
-    response.mata = {
+    response.meta = {
       field: 'name'
     };
     // Send response.

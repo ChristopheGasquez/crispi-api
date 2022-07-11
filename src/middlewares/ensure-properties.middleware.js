@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import CONST from '../constants/index.js';
+import { Response } from '../models/response.model.js';
 
 export default (rules = []) => {
   // rules: { from: 'body', key: 'password', format: 'string', required: true }[]
@@ -55,7 +56,9 @@ export default (rules = []) => {
     }
 
     if (errors?.length) {
-      return res.send(errors);
+      const response = new Response(CONST.response.error.ensure.properties);
+      response.meta = errors;
+      return response.send(res);
     }
     else {
       next();

@@ -56,6 +56,11 @@ export default {
           message: 'Error: Id send on url param is not valid.'
         }
       },
+      properties: {
+        status: 404,
+        code: 'error.ensure.properties',
+        message: `Error: One or more properties generate an error. See 'meta' on response.`
+      },
       right: {
         level: {
           status: 401,

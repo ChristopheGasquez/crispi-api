@@ -17,7 +17,7 @@ export default async (req, res) => {
     // Create response.
     const response = new Response(CONST.response.error.notFound);
     // Set data.
-    response.mata = {
+    response.meta = {
       field: 'id'
     };
     // Send response.
