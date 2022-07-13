@@ -7,7 +7,7 @@ export default async (req, res) => {
   let issuerRight;
   let targetedRight;
   let isEmailAlreadyExists;
-  // Get issuer right.
+  // Get issuer right. // Todo: Limit DB call at one with aggregate ($facet).
   try {
     issuerRight = await Right.findById(req.issuer.right);
   } catch {
@@ -28,6 +28,7 @@ export default async (req, res) => {
   } catch {
     return utils.handlerError(res);
   }
+  // Todo: Implement update action.
 
   return res.send({
     password: req.body.password,

@@ -13,7 +13,7 @@ export default async (req, res) => {
       { $match: {} },
       { $sort: { level: 1 } },
       { $addFields: { id: '$_id' } },
-      { $unset: [ '_id', '__v' ] },
+      { $unset: [ '_id', 'password', '__v' ] },
       {
         $facet: {
           meta: [

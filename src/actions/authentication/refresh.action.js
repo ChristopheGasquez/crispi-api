@@ -9,6 +9,7 @@ export default async (req, res) => {
     // Get credential by id.
     const credential = await Credential
       .findById(req.issuer.id)
+      .select('-createdAt -updatedAt')
       .populate('right', '-createdAt -updatedAt');
     // If not found.
     if (!credential) {
@@ -29,7 +30,7 @@ export default async (req, res) => {
         right: credential.right.id
       };
       // Create response.
-      const response = new Response(CONST.response.success.authentication.login);
+      const response = new Response(CONST.response.success.authentication.refresh);
       // Set data.
       response.data = {
         accessToken: jsonWebToken.createToken(tokenData),

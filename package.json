@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "serve:dev": "node app.js",
-    "watch:dev": "nodemon app.js"
+    "watch:dev": "nodemon app.js",
+    "build:doc": "apidoc -i src -o dist/apidoc"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,13 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.0",
     "nodemon": "^2.0.18"
+  },
+  "devDependencies": {
+    "apidoc": "^0.51.1"
+  },
+  "apidoc": {
+    "title": "Crispi API - Documentation",
+    "sampleUrl": "http://localhost:3001",
+    "version": "1.0.0"
   }
 }

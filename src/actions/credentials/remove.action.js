@@ -31,7 +31,7 @@ export default async (req, res) => {
       const response = new Response(CONST.response.success.credentials.remove);
       // Set meta.
       response.meta = {
-        query: {
+        params: {
           id: req.params.id
         }
       };

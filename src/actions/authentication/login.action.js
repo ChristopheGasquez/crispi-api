@@ -11,6 +11,7 @@ export default async (req, res) => {
         email: req.body.email,
         password: req.body.password
       })
+      .select('-createdAt -updatedAt')
       .populate('right', '-createdAt -updatedAt');
     // If null return error.
     if (!credential) {
@@ -18,7 +19,7 @@ export default async (req, res) => {
       const response = new Response(CONST.response.error.notFound);
       // Set meta.
       response.meta = {
-        reason: 'Error: Invalid credential.'
+        reason: 'Error: Credential unknown.'
       };
       // Send response.
       return response.send(res);

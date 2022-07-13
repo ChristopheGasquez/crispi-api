@@ -24,7 +24,7 @@ export default async (req, res) => {
       response.data = credential;
       // Set meta.
       response.meta = {
-        query: {
+        params: {
           id: req.params.id
         }
       };
