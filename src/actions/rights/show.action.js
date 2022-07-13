@@ -1,6 +1,6 @@
-import { Right } from '../../schemas/right.schema.js';
-import { Response } from '../../models/response.model.js';
 import CONST from '../../constants/index.js';
+import { Response } from '../../models/response.model.js';
+import { Right } from '../../schemas/right.schema.js';
 import utils from '../../utils/index.js';
 
 

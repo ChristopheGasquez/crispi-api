@@ -1,8 +1,8 @@
-import { Response } from '../../models/response.model.js';
 import CONST from '../../constants/index.js';
+import { Response } from '../../models/response.model.js';
 import { Credential } from '../../schemas/credential.schema.js';
-import jsonWebToken from '../../utils/json-web-token.js';
 import utils from '../../utils/index.js';
+import jsonWebToken from '../../utils/json-web-token.js';
 
 export default async (req, res) => {
   try {

@@ -1,6 +1,6 @@
-import { Right } from '../../schemas/right.schema.js';
-import { Response } from '../../models/response.model.js';
 import CONST from '../../constants/index.js';
+import { Response } from '../../models/response.model.js';
+import { Right } from '../../schemas/right.schema.js';
 import utils from '../../utils/index.js';
 
 export default async (req, res) => {
@@ -13,7 +13,7 @@ export default async (req, res) => {
       { $match: {} },
       { $sort: { level: 1 } },
       { $addFields: { id: '$_id' } },
-      { $unset: [ '_id', '__v' ] },
+      { $unset: [ '_id', '__v', "isDefault" ] },
       {
         $facet: {
           meta: [

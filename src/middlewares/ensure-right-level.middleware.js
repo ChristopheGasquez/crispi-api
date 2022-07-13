@@ -1,5 +1,5 @@
-import { Response } from '../models/response.model.js';
 import CONST from '../constants/index.js';
+import { Response } from '../models/response.model.js';
 import { Right } from '../schemas/right.schema.js';
 
 export default (level) => {

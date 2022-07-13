@@ -118,9 +118,10 @@ export default express
    *
    * @apiParam {ObjectId} id Identifier of the targeted resource.
    *
-   * @apiBody {String} email    Email of the credential to update.
-   * @apiBody {String} password Password of the credential to update.
-   * @apiBody {String} right  Right Id of the credential to update.
+   * @apiBody {String}  email    Email of the credential to update.
+   * @apiBody {Boolean} isEmailConfirmed Is email confirmed for the credential to update.
+   * @apiBody {String}  password Password of the credential to update.
+   * @apiBody {String}  right  Right Id of the credential to update.
    *
    * @apiSuccessExample {json} Success-response
    *    {}
@@ -131,6 +132,7 @@ export default express
     middleware.ensureProperties([
       { from: 'params', key: 'id', required: true, format: 'id' },
       { from: 'body', key: 'email', required: true, format: 'email' },
+      { from: 'body', key: 'isEmailConfirmed', required: true, format: 'boolean' },
       { from: 'body', key: 'password', required: true, format: 'password' },
       { from: 'body', key: 'right', required: true, format: 'id' },
     ]),

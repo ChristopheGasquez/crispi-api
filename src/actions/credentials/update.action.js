@@ -1,6 +1,6 @@
+import { Credential } from '../../schemas/credential.schema.js';
 import { Right } from '../../schemas/right.schema.js';
 import utils from '../../utils/index.js';
-import { Credential } from '../../schemas/credential.schema.js';
 
 export default async (req, res) => {
   // Defined scope variables.
